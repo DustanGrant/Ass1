@@ -6,7 +6,7 @@ Create the project files
 	
 Create the menu
 	-it could either be a function that accepts parameters returned by input functions or part of main
-	-regardless of the implementation it seems like a prime candite for a switch statement
+	-regardless of the implementation it seems like a prime candidate for a switch statement
 	-no actions yet, just have a directory
 	
 Write functions for accepting input
