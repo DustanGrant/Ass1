@@ -58,33 +58,33 @@ include CMakeFiles\Ass1.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\Ass1.dir\flags.make
 
-CMakeFiles\Ass1.dir\test.c.obj: CMakeFiles\Ass1.dir\flags.make
-CMakeFiles\Ass1.dir\test.c.obj: ..\test.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Ass1.dir/test.c.obj"
+CMakeFiles\Ass1.dir\main.c.obj: CMakeFiles\Ass1.dir\flags.make
+CMakeFiles\Ass1.dir\main.c.obj: ..\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Ass1.dir/main.c.obj"
 	C:\PROGRA~2\MICROS~3\2017\ENTERP~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\Ass1.dir\test.c.obj /FdCMakeFiles\Ass1.dir\ /FS -c "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\test.c"
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoCMakeFiles\Ass1.dir\main.c.obj /FdCMakeFiles\Ass1.dir\ /FS -c "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\main.c"
 <<
 
-CMakeFiles\Ass1.dir\test.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Ass1.dir/test.c.i"
-	C:\PROGRA~2\MICROS~3\2017\ENTERP~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Ass1.dir\test.c.i @<<
- /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\test.c"
+CMakeFiles\Ass1.dir\main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Ass1.dir/main.c.i"
+	C:\PROGRA~2\MICROS~3\2017\ENTERP~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Ass1.dir\main.c.i @<<
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\main.c"
 <<
 
-CMakeFiles\Ass1.dir\test.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Ass1.dir/test.c.s"
+CMakeFiles\Ass1.dir\main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Ass1.dir/main.c.s"
 	C:\PROGRA~2\MICROS~3\2017\ENTERP~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Ass1.dir\test.c.s /c "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\test.c"
+ /nologo $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) /FoNUL /FAs /FaCMakeFiles\Ass1.dir\main.c.s /c "D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\main.c"
 <<
 
 # Object files for target Ass1
 Ass1_OBJECTS = \
-"CMakeFiles\Ass1.dir\test.c.obj"
+"CMakeFiles\Ass1.dir\main.c.obj"
 
 # External object files for target Ass1
 Ass1_EXTERNAL_OBJECTS =
 
-Ass1.exe: CMakeFiles\Ass1.dir\test.c.obj
+Ass1.exe: CMakeFiles\Ass1.dir\main.c.obj
 Ass1.exe: CMakeFiles\Ass1.dir\build.make
 Ass1.exe: CMakeFiles\Ass1.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Dropbox\Dustan Algonquin College\C Language\Shared with Dustan's Ubuntu VM\Assignments\Assignment 1\Code\Ass1\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Ass1.exe"

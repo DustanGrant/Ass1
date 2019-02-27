@@ -124,32 +124,32 @@ Ass1\fast:
 	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\build
 .PHONY : Ass1\fast
 
-test.obj: test.c.obj
+main.obj: main.c.obj
 
-.PHONY : test.obj
+.PHONY : main.obj
 
 # target to build an object file
-test.c.obj:
-	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\test.c.obj
-.PHONY : test.c.obj
+main.c.obj:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\main.c.obj
+.PHONY : main.c.obj
 
-test.i: test.c.i
+main.i: main.c.i
 
-.PHONY : test.i
+.PHONY : main.i
 
 # target to preprocess a source file
-test.c.i:
-	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\test.c.i
-.PHONY : test.c.i
+main.c.i:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\main.c.i
+.PHONY : main.c.i
 
-test.s: test.c.s
+main.s: main.c.s
 
-.PHONY : test.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-test.c.s:
-	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\test.c.s
-.PHONY : test.c.s
+main.c.s:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -160,9 +160,9 @@ help:
 	@echo ... Ass1
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... test.obj
-	@echo ... test.i
-	@echo ... test.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

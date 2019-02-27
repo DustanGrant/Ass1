@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(Ass1
         plan
-        README.md test.c test.h)
+        README.md main.c typedef.h)
