@@ -124,6 +124,33 @@ Ass1\fast:
 	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\build
 .PHONY : Ass1\fast
 
+LInkedLists.obj: LInkedLists.c.obj
+
+.PHONY : LInkedLists.obj
+
+# target to build an object file
+LInkedLists.c.obj:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\LInkedLists.c.obj
+.PHONY : LInkedLists.c.obj
+
+LInkedLists.i: LInkedLists.c.i
+
+.PHONY : LInkedLists.i
+
+# target to preprocess a source file
+LInkedLists.c.i:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\LInkedLists.c.i
+.PHONY : LInkedLists.c.i
+
+LInkedLists.s: LInkedLists.c.s
+
+.PHONY : LInkedLists.s
+
+# target to generate assembly for a file
+LInkedLists.c.s:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\LInkedLists.c.s
+.PHONY : LInkedLists.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -160,6 +187,9 @@ help:
 	@echo ... Ass1
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... LInkedLists.obj
+	@echo ... LInkedLists.i
+	@echo ... LInkedLists.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
