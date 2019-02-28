@@ -1,6 +1,8 @@
-//
-// Created by Dustan on 2019-02-27.
-//
+/*
+ * Where the action happens
+ * Will contain the menu contained within a loop
+ */
 
 #include "typedef.h"
+
 

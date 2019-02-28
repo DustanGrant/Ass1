@@ -28,6 +28,8 @@ Create a street struct type
 
 Create a static array of 10 different streets
 	-use {} initialization to create the array then assign everything a random distance
+
+Write a function to go through the street array and assign everything a random distance
 	
 Write a function to calculate the distance from the college
 	-accepts a pointer to a rental property as an argument

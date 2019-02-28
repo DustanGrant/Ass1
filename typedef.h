@@ -1,15 +1,19 @@
-//
-// Created by Dustan on 2019-02-27.
-//
+/*
+ * defines the street and rental property structs
+ */
 
 #ifndef ASS1_TYPEDEF_H
 #define ASS1_TYPEDEF_H
 
+typedef struct street {
+    char * name;
+    int distance;
+}street_t;
+
 typedef struct RentalProperty {
-    char *streetName;
+    street_t street;
     int houseNumber;
     int rentPerBedroom;
     int numberOfBedrooms;
 }property_t;
-
 #endif //ASS1_TYPEDEF_H
