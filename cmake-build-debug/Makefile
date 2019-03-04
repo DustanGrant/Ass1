@@ -151,6 +151,33 @@ LInkedLists.c.s:
 	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\LInkedLists.c.s
 .PHONY : LInkedLists.c.s
 
+Property.obj: Property.c.obj
+
+.PHONY : Property.obj
+
+# target to build an object file
+Property.c.obj:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\Property.c.obj
+.PHONY : Property.c.obj
+
+Property.i: Property.c.i
+
+.PHONY : Property.i
+
+# target to preprocess a source file
+Property.c.i:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\Property.c.i
+.PHONY : Property.c.i
+
+Property.s: Property.c.s
+
+.PHONY : Property.s
+
+# target to generate assembly for a file
+Property.c.s:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\Property.c.s
+.PHONY : Property.c.s
+
 Sort.obj: Sort.c.obj
 
 .PHONY : Sort.obj
@@ -217,6 +244,9 @@ help:
 	@echo ... LInkedLists.obj
 	@echo ... LInkedLists.i
 	@echo ... LInkedLists.s
+	@echo ... Property.obj
+	@echo ... Property.i
+	@echo ... Property.s
 	@echo ... Sort.obj
 	@echo ... Sort.i
 	@echo ... Sort.s

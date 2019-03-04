@@ -16,4 +16,6 @@ typedef struct RentalProperty {
     int rentPerBedroom;
     int numberOfBedrooms;
 }property_t;
+
+
 #endif //ASS1_TYPEDEF_H

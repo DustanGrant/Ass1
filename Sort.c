@@ -4,6 +4,4 @@
 
 #include "Sort.h"
 
-int test() {
 
-}
