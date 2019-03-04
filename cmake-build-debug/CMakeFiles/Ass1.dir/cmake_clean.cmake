@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Ass1.dir/LInkedLists.c.obj"
   "CMakeFiles/Ass1.dir/Sort.c.obj"
   "CMakeFiles/Ass1.dir/Property.c.obj"
+  "CMakeFiles/Ass1.dir/menu.c.obj"
   "Ass1.pdb"
   "Ass1.exe"
   "Ass1.exe.manifest"

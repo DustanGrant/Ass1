@@ -232,6 +232,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\main.c.s
 .PHONY : main.c.s
 
+menu.obj: menu.c.obj
+
+.PHONY : menu.obj
+
+# target to build an object file
+menu.c.obj:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\menu.c.obj
+.PHONY : menu.c.obj
+
+menu.i: menu.c.i
+
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.c.i:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\menu.c.i
+.PHONY : menu.c.i
+
+menu.s: menu.c.s
+
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.c.s:
+	$(MAKE) -f CMakeFiles\Ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Ass1.dir\menu.c.s
+.PHONY : menu.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -253,6 +280,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
 .PHONY : help
 
 

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.c" "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/cmake-build-debug/CMakeFiles/Ass1.dir/Property.c.obj"
   "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Sort.c" "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/cmake-build-debug/CMakeFiles/Ass1.dir/Sort.c.obj"
   "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/main.c" "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/cmake-build-debug/CMakeFiles/Ass1.dir/main.c.obj"
+  "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/menu.c" "D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/cmake-build-debug/CMakeFiles/Ass1.dir/menu.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "MSVC")
 
