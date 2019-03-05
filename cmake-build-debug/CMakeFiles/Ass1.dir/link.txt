@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/Ass1.dir/main.c.o CMakeFiles/Ass1.dir/LInkedLists.c.o CMakeFiles/Ass1.dir/Sort.c.o CMakeFiles/Ass1.dir/Property.c.o CMakeFiles/Ass1.dir/menu.c.o  -o Ass1.exe -Wl,--out-implib,libAss1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

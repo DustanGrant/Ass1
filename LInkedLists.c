@@ -3,3 +3,6 @@
  */
 
 #include "LInkedLists.h"
+
+//count the number of items in a list
+//int getCount( node_t * pHead)

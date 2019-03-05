@@ -1,6 +1,18 @@
 /*
  * Contains functions to initialize and handle property and street types
  */
+#include <stdio.h>
+#include <stdlib.h>
 #include "Property.h"
+#include "typedef.h"
 
-//make a function that accepts a pointer to an array of streets and sets a randomly generated base distance for each one
+
+
+
+
+//function that accepts a pointer to an array of streets to print them
+void printStreets ( street_t streets[]) {
+    for (int i = 0; i < 10; i++ ) {
+        printf("Name: %s, Distance: %d\n", streets[i].name, streets[i].distance);
+    }
+}

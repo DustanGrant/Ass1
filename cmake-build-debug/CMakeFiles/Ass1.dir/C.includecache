@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.h
+typedef.h
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
+
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/main.c
+time.h
+-
+stdio.h
+-
+stdlib.h
+-
+typedef.h
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
+Property.h
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.h
+
+/cygdrive/d/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
+
