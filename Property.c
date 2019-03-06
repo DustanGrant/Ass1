@@ -13,7 +13,6 @@
  * returns a pointer to the first element of an array of ten streets
  */
 street_t * createArrayOfStreets() {
-    //make a global static array of 10 streets
     static street_t streets[] = {
             {.name ="Koala Bear Avenue", .distance=0},
             {.name ="Platypus Drive", .distance=0},

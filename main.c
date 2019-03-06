@@ -16,8 +16,11 @@ int main() {
     srand(time(0)); //seed rand
     street_t * pStreets = createArrayOfStreets(); //creates a pointer to the first element of our array of streets
     setRandomStreetDistances(pStreets);//assigns a random distance to each street
+    node_t *pUndecided = createUndecidedList(pStreets); //creates undecided list with 6 random properties
+    //end initialize
 
-
+    printStreets(pStreets);
+    printList(pUndecided);
 }
 
 

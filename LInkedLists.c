@@ -1,7 +1,7 @@
 /*
  * Will contain the node struct and all associated functions for handling the linked list
  * To Do:
- * -write a function that will accept a property as an argument and return a node that contains that property and points to null
+ *
  */
 
 #include "LInkedLists.h"
@@ -9,6 +9,22 @@
 #include "Property.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+/*
+ *creates a linked list with 6 random properties
+ */
+node_t *createUndecidedList(street_t *pStreets) {
+    node_t *pHead;
+    pHead = createNode(createRandomProperty(pStreets));
+
+    for (int i = 0; i < 5; i++) {
+        node_t *pNewNode;
+        pNewNode = createNode(createRandomProperty(pStreets));
+        appendNode(&pHead, pNewNode);
+    }
+
+    return pHead;
+}
 
 /*
  * Function that accepts a property as an argument and mallocs space for a node containing that property and pointing to NULL
