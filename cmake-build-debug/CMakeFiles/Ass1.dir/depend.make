@@ -3,6 +3,7 @@
 
 CMakeFiles\Ass1.dir\LInkedLists.c.obj: ..\LInkedLists.c
 CMakeFiles\Ass1.dir\LInkedLists.c.obj: ..\LInkedLists.h
+CMakeFiles\Ass1.dir\LInkedLists.c.obj: ..\Property.h
 CMakeFiles\Ass1.dir\LInkedLists.c.obj: ..\typedef.h
 
 CMakeFiles\Ass1.dir\Property.c.obj: ..\Property.c
@@ -12,6 +13,7 @@ CMakeFiles\Ass1.dir\Property.c.obj: ..\typedef.h
 CMakeFiles\Ass1.dir\Sort.c.obj: ..\Sort.c
 CMakeFiles\Ass1.dir\Sort.c.obj: ..\Sort.h
 
+CMakeFiles\Ass1.dir\main.c.obj: ..\LInkedLists.h
 CMakeFiles\Ass1.dir\main.c.obj: ..\Property.h
 CMakeFiles\Ass1.dir\main.c.obj: ..\main.c
 CMakeFiles\Ass1.dir\main.c.obj: ..\typedef.h

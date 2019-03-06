@@ -8,20 +8,16 @@
 #include <stdlib.h>
 #include "typedef.h"
 #include "Property.h"
-
-
+#include "LInkedLists.h"
 
 
 int main() {
     //initialize stuff here
-    srand(time(0));
+    srand(time(0)); //seed rand
     street_t * pStreets = createArrayOfStreets(); //creates a pointer to the first element of our array of streets
     setRandomStreetDistances(pStreets);//assigns a random distance to each street
 
 
-    printStreets(pStreets);
-
-    printProperty(createRandomProperty(pStreets));
 }
 
 

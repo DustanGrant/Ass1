@@ -1,11 +1,27 @@
 /*
  * Will contain the node struct and all associated functions for handling the linked list
+ * To Do:
+ * -write a function that will accept a property as an argument and return a node that contains that property and points to null
  */
 
 #include "LInkedLists.h"
 #include "typedef.h"
+#include "Property.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+/*
+ * Function that accepts a property as an argument and mallocs space for a node containing that property and pointing to NULL
+ * before returning a pointer to that node
+ */
+node_t *createNode(property_t newProperty) {
+    node_t *pHead = malloc(sizeof(node_t));
+
+    pHead->property = newProperty;
+    pHead->next = NULL;
+
+    return pHead;
+}
 
 //count the number of items in a list
 int getCount( node_t * pHead);
@@ -13,9 +29,31 @@ int getCount( node_t * pHead);
 //find the i-th element in a list
 node_t *getNodeAtIndex ( node_t *pHead, int index );
 
+/*
+ * Prints the contents of a list
+ */
+void printList(node_t * pHead) {
+    node_t *pCurrent = pHead;
+
+    while (pCurrent != NULL) {
+        printProperty(pCurrent->property);
+        printf("\n");
+        pCurrent = pCurrent->next;
+    }
+}
 
 //append an item to the end of a list
-void appendNode (node_t **ppHead, node_t *pNewNode);
+void appendNode (node_t **ppHead, node_t *pNewNode) {
+    node_t *pCurrent = *ppHead; //keeps track of our position
+
+    //sets pCurrent to point to last node in list
+    while (pCurrent->next != NULL) {
+        pCurrent = pCurrent->next;
+    }
+
+    pCurrent->next = pNewNode;
+    pCurrent->next->next = NULL;
+}
 
 //insert an item into a list at position
 void insertNode ( node_t **ppHead, node_t *pNewNode, int index);
