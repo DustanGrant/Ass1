@@ -28,7 +28,7 @@ static street_t streets[] = {
 //generate random number within a range using rand() % (max_number + 1 - minimum_number) + minimum_number
 void setRandomStreetDistances () {
     for (int i = 0; i < 10; i++) {
-        streets[i].distance = 100*(random() % (40 - 5) +5);
+        streets[i].distance = 100*(random() % (40 - 5) +5); //apparently random() generates a long but we should be fine in our range
     }
 }
 

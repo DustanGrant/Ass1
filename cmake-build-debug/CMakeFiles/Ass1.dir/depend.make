@@ -3,6 +3,7 @@
 
 CMakeFiles/Ass1.dir/LInkedLists.c.o: ../LInkedLists.c
 CMakeFiles/Ass1.dir/LInkedLists.c.o: ../LInkedLists.h
+CMakeFiles/Ass1.dir/LInkedLists.c.o: ../typedef.h
 
 CMakeFiles/Ass1.dir/Property.c.o: ../Property.c
 CMakeFiles/Ass1.dir/Property.c.o: ../Property.h
