@@ -6,39 +6,9 @@
 
 #IncludeRegexTransform: 
 
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/LInkedLists.c
-LInkedLists.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/LInkedLists.h
-typedef.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
-stdio.h
--
-stdlib.h
--
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/LInkedLists.h
-typedef.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.c
-stdio.h
--
-stdlib.h
--
-Property.h
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.h
 typedef.h
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.h
-typedef.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Sort.c
-Sort.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Sort.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Sort.h
 
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/main.c
 time.h
@@ -51,12 +21,6 @@ typedef.h
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
 Property.h
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/Property.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/menu.c
-menu.h
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/menu.h
-
-D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/menu.h
 
 D:/Dropbox/Dustan Algonquin College/C Language/Shared with Dustan's Ubuntu VM/Assignments/Assignment 1/Code/Ass1/typedef.h
 
