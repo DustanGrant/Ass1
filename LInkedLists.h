@@ -12,4 +12,6 @@ typedef struct node {
     struct node * next;
 }node_t;
 
+
+
 #endif //ASS1_LINKEDLISTS_H

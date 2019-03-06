@@ -11,7 +11,7 @@ typedef struct street {
 }street_t;
 
 typedef struct RentalProperty {
-    street_t street;
+    street_t *pStreet;
     int houseNumber;
     int rentPerBedroom;
     int numberOfBedrooms;
