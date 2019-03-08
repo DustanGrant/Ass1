@@ -40,10 +40,37 @@ node_t *createNode(property_t newProperty) {
 }
 
 //count the number of items in a list
-int getCount( node_t * pHead);
+int getCount( node_t * pHead) {
+    int count = 0;
+    node_t *pCurrent = pHead;
+
+    while (pCurrent != NULL) {
+        count++;
+        pCurrent = pCurrent->next;
+    }
+
+    return count;
+}
 
 //find the i-th element in a list
-node_t *getNodeAtIndex ( node_t *pHead, int index );
+node_t *getNodeAtIndex ( node_t *pHead, int index ){
+    node_t *pCurrent = pHead;
+    node_t *pTemp = malloc(sizeof(node_t));
+    pTemp->property = pCurrent->property;
+    pTemp->next = NULL;
+
+
+    for (int i = 0; i < index; i++) {
+        if (pCurrent->next == NULL) { //if the index is wrong and we get the linked list equivalent of an IndexOutOfBounds Exception
+            fprintf(stderr, "Get Node at Index, Index of %d is out of bounds\n", index); //hopefully this generates record in stderr
+            pTemp->property = pCurrent->property;
+            return pTemp;
+        }
+        pCurrent = pCurrent->next;
+    }
+    pTemp->property = pCurrent->property;
+    return pTemp;
+}
 
 /*
  * Prints the contents of a list
@@ -68,11 +95,37 @@ void appendNode (node_t **ppHead, node_t *pNewNode) {
     }
 
     pCurrent->next = pNewNode;
-    pCurrent->next->next = NULL;
+    pCurrent->next->next = NULL; //cuts off any nodes the new node was connected to
 }
 
 //insert an item into a list at position
-void insertNode ( node_t **ppHead, node_t *pNewNode, int index);
+/*
+ * we will do the following:
+ * -navigate to the specified index -1
+ * -make the new node point to the same value as the current index
+ * -make the current index point to the new node
+ */
+void insertNodeAtIndex(node_t **ppHead, node_t *pNewNode, int index) {
+    node_t *pCurrent = *ppHead;
+
+    if (index != 0) {
+        //navigate to index
+        for (int i = 0; i < index-1; i++) {
+            if (pCurrent->next == NULL) { //if the index is wrong and we get the linked list equivalent of an IndexOutOfBounds Exception
+                fprintf(stderr, "Insert Node at Index, Index of %d is out of bounds, Appended to end\n", index); //hopefully this generates record in stderr
+                break; //stops us before we run out of list
+            }
+            pCurrent = pCurrent->next;
+        }
+
+        pNewNode->next = pCurrent->next;
+        pCurrent->next = pNewNode;
+    } else {
+        pNewNode->next = pCurrent;
+        *ppHead = pNewNode;
+    }
+
+}
 
 /*
  * Function that removes the first item of a list and returns a pointer to that item
@@ -91,7 +144,6 @@ node_t *removeFirst(node_t ** ppHead) {
 
     pNextNode = (*ppHead)->next; //nextnode now points to the same node as the head
     returnValue = *ppHead;
-    free(*ppHead); // free the head item
     *ppHead = pNextNode;
 
     return returnValue;
@@ -105,6 +157,7 @@ node_t *removeFirst(node_t ** ppHead) {
 * 3. set the previous node's next pointer to point to the node after the node we wish to delete
 * 4. Delete the node using the temporary pointer
 * Question: why not just free the item and return a copy of it instead of a pointer?
+ * Answer: After the node is returned we can either put it into a new list or free it outside the function
 */
 node_t *removeNodeAtIndex ( node_t **ppHead, int index) {
     node_t *returnValue;
@@ -120,6 +173,7 @@ node_t *removeNodeAtIndex ( node_t **ppHead, int index) {
     //sets pCurrent to point to the node at index-1
     for (int i = 0; i < (index - 1); i++) {
         if (pCurrent->next == NULL) { //if the index is wrong and we get the linked list equivalent of an IndexOutOfBounds Exception
+            fprintf(stderr, "Remove node at Index, Index of %d is out of bounds, nothing was removed\n", index); //hopefully this generates record in stderr
             return 0;
         }
         pCurrent = pCurrent->next;
