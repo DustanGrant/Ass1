@@ -47,18 +47,18 @@ void testLinkedList(street_t *pStreets, node_t *pUndecided) {
     printList(pUndecided);
 
     //test the count function
-    printf ("\nThere should be 7 items in the list\n", getCount(pUndecided));
+    printf ("\nThere should be 7 items in the list\n");
     printf ("There are currently %d items in the list\n", getCount(pUndecided));
     printList(pUndecided);
     //add an item
     insertNodeAtIndex(&pUndecided, createNode(createRandomProperty(pStreets)), 0);
-    printf ("\nThere should be 8 items in the list\n", getCount(pUndecided));
+    printf ("\nThere should be 8 items in the list\n");
     printf ("There are currently %d items in the list\n", getCount(pUndecided));
     printList(pUndecided);
     //remove two items
     removeNodeAtIndex(&pUndecided, 0);
     removeNodeAtIndex(&pUndecided, 0);
-    printf ("\nThere should be 6 items in the list\n", getCount(pUndecided));
+    printf ("\nThere should be 6 items in the list\n");
     printf ("There are currently %d items in the list\n", getCount(pUndecided));
     printList(pUndecided);
 
