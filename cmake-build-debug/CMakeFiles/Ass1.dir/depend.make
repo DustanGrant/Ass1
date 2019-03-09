@@ -10,14 +10,22 @@ CMakeFiles/Ass1.dir/Property.c.o: ../Property.c
 CMakeFiles/Ass1.dir/Property.c.o: ../Property.h
 CMakeFiles/Ass1.dir/Property.c.o: ../typedef.h
 
+CMakeFiles/Ass1.dir/Sort.c.o: ../LInkedLists.h
+CMakeFiles/Ass1.dir/Sort.c.o: ../Property.h
 CMakeFiles/Ass1.dir/Sort.c.o: ../Sort.c
 CMakeFiles/Ass1.dir/Sort.c.o: ../Sort.h
+CMakeFiles/Ass1.dir/Sort.c.o: ../typedef.h
 
 CMakeFiles/Ass1.dir/main.c.o: ../LInkedLists.h
 CMakeFiles/Ass1.dir/main.c.o: ../Property.h
+CMakeFiles/Ass1.dir/main.c.o: ../Sort.h
 CMakeFiles/Ass1.dir/main.c.o: ../main.c
 CMakeFiles/Ass1.dir/main.c.o: ../typedef.h
 
+CMakeFiles/Ass1.dir/menu.c.o: ../LInkedLists.h
+CMakeFiles/Ass1.dir/menu.c.o: ../Property.h
+CMakeFiles/Ass1.dir/menu.c.o: ../Sort.h
 CMakeFiles/Ass1.dir/menu.c.o: ../menu.c
 CMakeFiles/Ass1.dir/menu.c.o: ../menu.h
+CMakeFiles/Ass1.dir/menu.c.o: ../typedef.h
 

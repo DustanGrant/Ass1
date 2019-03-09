@@ -9,6 +9,7 @@
 #include "typedef.h"
 #include "Property.h"
 #include "LInkedLists.h"
+#include "Sort.h"
 
 //Tests LinkedLists.c
 void testLinkedList(street_t *pStreets, node_t *pUndecided) {
@@ -73,15 +74,49 @@ void testLinkedList(street_t *pStreets, node_t *pUndecided) {
     printList(pUndecided);
 }
 
+//tests for sort.c
+void testSort(street_t *pStreets, node_t *pUndecided) {
+    printf ("\nInitial Undecided List\n");
+    printList(pUndecided);
+
+    printf ("\nTest 1: Retrieve and print the property contained in the node at index 0\n");
+    printProperty(getPropertyAtIndex(pUndecided, 0));
+
+    printf ("\n\nTest 2: Set a new property at index 0\n");
+    setPropertyAtIndex(pUndecided, createRandomProperty(pStreets), 0);
+    printList(pUndecided);
+
+    printf("\nTest 3: Swap the values at index 1 and index 3\n");
+    swapNodeValues(pUndecided, 1, 3);
+    printList(pUndecided);
+
+    printf("\nTest 4: Test sort by address\n");
+    sortByAddress(pUndecided);
+    printList(pUndecided);
+
+    printf("\nTest 5: Test sort by distance\n");
+    sortByDistance(pUndecided);
+    printList(pUndecided);
+
+    printf("\nTest 6: Test sort by bedroom\n");
+    sortByBedroom(pUndecided);
+    printList(pUndecided);
+
+    printf("\nTest 7: Test sort by rent\n");
+    sortByRent(pUndecided);
+    printList(pUndecided);
+}
+
 int main() {
     //initialize stuff here
     srand(time(0)); //seed rand
     street_t * pStreets = createArrayOfStreets(); //creates a pointer to the first element of our array of streets
     setRandomStreetDistances(pStreets);//assigns a random distance to each street
     node_t *pUndecided = createUndecidedList(pStreets); //creates undecided list with 6 random properties
+    node_t *pFavourites = NULL; //starts off as null but will later be set to the first item added to the favourites list, may need to be a double pointer, we'll find out
     //end initialize
 
-    testLinkedList(pStreets, pUndecided);
+    testSort(pStreets, pUndecided);
 }
 
 

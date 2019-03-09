@@ -74,9 +74,19 @@ node_t *getNodeAtIndex ( node_t *pHead, int index ){
 
 /*
  * Prints the contents of a list
+ * Formatting is very delicate, please do not touch without consideration
  */
 void printList(node_t * pHead) {
     node_t *pCurrent = pHead;
+
+    printf("%-28s%-10s%-7s %9s %8s", "Address", "", "#Rooms", "Rent/Room", "Distance");
+
+    printf("\n");
+
+    printf("%-38s%-7s%10s%9s", "----------------------------", "-------", "---------", "--------"); //x28, x7, x9
+
+
+    printf("\n");
 
     while (pCurrent != NULL) {
         printProperty(pCurrent->property);

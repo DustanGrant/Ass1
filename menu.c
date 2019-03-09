@@ -33,7 +33,7 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 	//look at strategy #11 in the assignment outline to see what I mean by "dummy branches" or stub functions
 
 }
-
+/*
 //repurpose this for the input function
 int menu(){
 
@@ -44,7 +44,7 @@ int menu(){
 
 	//switch statement with all functions
 
-}
+}*/
 
 //get rid of everything below here and just perform the actions in the appropriate spot of the menu function
 void help(){
@@ -63,8 +63,7 @@ void help(){
 	printf("	sd - set the sorting to 'by distance'");
 	printf("	q - quit the program");
 
-	menu();
-
+	//menu();
 }
 
 void displayProperties(){

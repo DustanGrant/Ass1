@@ -72,9 +72,10 @@ float calculateDistance(property_t property) {
 
 /*
  * Accepts an property and prints it in a nicely formatted way
+ * Formatting is very delicate, please do not touch without consideration
  */
 void printProperty(property_t printThis) {
-    printf("%d %s, Number of Bedrooms: %d, Rent: $%d, Distance from campus %.2fkm",
+    printf("%3d %-24s %16d %9d %6.2fkm",
             printThis.houseNumber,
             printThis.pStreet->name,
             printThis.numberOfBedrooms,

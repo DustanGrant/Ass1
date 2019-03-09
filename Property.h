@@ -11,4 +11,5 @@ extern void setRandomStreetDistances (street_t * streets);
 extern property_t createRandomProperty(street_t * streets);
 extern void printProperty(property_t printThis);
 extern void printStreets( street_t * streets ) ;
+extern float calculateDistance(property_t property);
 #endif //ASS1_PROPERTY_H
