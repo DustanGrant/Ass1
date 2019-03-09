@@ -7,8 +7,8 @@
 #ifndef ASS1_SORT_H
 #define ASS1_SORT_H
 
-extern property_t getPropertyAtIndex(node_t *pHead, int index);
-extern void setPropertyAtIndex(node_t *pHead, property_t newProperty, int index);
+extern property_t *getPropertyAtIndex(node_t *pHead, int index);
+extern void setPropertyAtIndex(node_t *pHead, property_t *newProperty, int index);
 extern void swapNodeValues(node_t *pHead, int indexA, int indexB);
 extern void sortByAddress(node_t *pHead);
 extern void sortByDistance(node_t *pHead);

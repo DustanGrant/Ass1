@@ -11,13 +11,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-property_t getPropertyAtIndex(node_t *pHead, int index) {
+property_t *getPropertyAtIndex(node_t *pHead, int index) {
     node_t *pTemp = getNodeAtIndex(pHead, index);
 
-    return pTemp->property;
+    return &pTemp->property;
 }
 
-void setPropertyAtIndex(node_t *pHead, property_t newProperty, int index) {
+void setPropertyAtIndex(node_t *pHead, property_t *newProperty, int index) {
     node_t *pCurrent = pHead;
 
     for (int i = 0; i < index; i++) {
@@ -27,12 +27,12 @@ void setPropertyAtIndex(node_t *pHead, property_t newProperty, int index) {
         }
         pCurrent = pCurrent->next;
     }
-    pCurrent->property = newProperty;
+    pCurrent->property = *newProperty;
 }
 
 void swapNodeValues(node_t *pHead, int indexA, int indexB) {
-    property_t propA = getPropertyAtIndex(pHead, indexA);
-    property_t propB = getPropertyAtIndex(pHead, indexB);
+    property_t *propA = getPropertyAtIndex(pHead, indexA);
+    property_t *propB = getPropertyAtIndex(pHead, indexB);
 
     setPropertyAtIndex(pHead, propA, indexB);
     setPropertyAtIndex(pHead, propB, indexA);
@@ -49,9 +49,9 @@ void sortByAddress(node_t *pHead) {
     //sort by name
     for (int i = 0; i < count-1; i++) {
         for (int j = 0; j < count-1; j++) {
-            property_t prop1 = getPropertyAtIndex(pHead, j);
-            property_t prop2 = getPropertyAtIndex(pHead, j+1);
-            if (strcmp(prop1.pStreet->name, prop2.pStreet->name) > 0) { //if a > b
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (strcmp(prop1->pStreet->name, prop2->pStreet->name) > 0) { //if a > b
                 swapNodeValues(pHead, j, j+1);
             }
         }
@@ -60,9 +60,9 @@ void sortByAddress(node_t *pHead) {
     //sort by number
     for (int i = 0; i < count-1; i++) {
         for (int j = 0; j < count-1; j++) {
-            property_t prop1 = getPropertyAtIndex(pHead, j);
-            property_t prop2 = getPropertyAtIndex(pHead, j+1);
-            if (strcmp(prop1.pStreet->name, prop2.pStreet->name) == 0 && prop1.houseNumber > prop2.houseNumber) { //strings are equal and a > b
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (strcmp(prop1->pStreet->name, prop2->pStreet->name) == 0 && prop1->houseNumber > prop2->houseNumber) { //strings are equal and a > b
                 swapNodeValues(pHead, j, j+1);
             }
         }
@@ -74,9 +74,31 @@ void sortByDistance(node_t *pHead) {
 
     for (int i = 0; i < count-1; i++) {
         for (int j = 0; j < count-1; j++) {
-            property_t prop1 = getPropertyAtIndex(pHead, j);
-            property_t prop2 = getPropertyAtIndex(pHead, j+1);
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
             if (calculateDistance(prop1) > calculateDistance(prop2)) { //if a > b
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //secondary sort by street name
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (calculateDistance(prop1) == calculateDistance(prop2) && strcmp(prop1->pStreet->name, prop2->pStreet->name) > 0) { //if number of bedrooms are equal and nameA > nameB
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //tertiary sort by house number
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (calculateDistance(prop1) == calculateDistance(prop2) && strcmp(prop1->pStreet->name, prop2->pStreet->name) == 0 && prop1->houseNumber > prop2->houseNumber) { //if number of bedrooms and names are equal and numberA > number B
                 swapNodeValues(pHead, j, j+1);
             }
         }
@@ -86,11 +108,34 @@ void sortByDistance(node_t *pHead) {
 void sortByBedroom(node_t *pHead) {
     int count = getCount(pHead);
 
+    //primary sort by bedroom number
     for (int i = 0; i < count-1; i++) {
         for (int j = 0; j < count-1; j++) {
-            property_t prop1 = getPropertyAtIndex(pHead, j);
-            property_t prop2 = getPropertyAtIndex(pHead, j+1);
-            if (prop1.numberOfBedrooms > prop2.numberOfBedrooms) { //if a > b
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->numberOfBedrooms > prop2->numberOfBedrooms) { //if a > b
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //secondary sort by street name
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->numberOfBedrooms == prop2->numberOfBedrooms && strcmp(prop1->pStreet->name, prop2->pStreet->name) > 0) { //if number of bedrooms are equal and nameA > nameB
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //tertiary sort by house number
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->numberOfBedrooms == prop2->numberOfBedrooms && strcmp(prop1->pStreet->name, prop2->pStreet->name) == 0 && prop1->houseNumber > prop2->houseNumber) { //if number of bedrooms and names are equal and numberA > number B
                 swapNodeValues(pHead, j, j+1);
             }
         }
@@ -102,9 +147,31 @@ void sortByRent(node_t *pHead) {
 
     for (int i = 0; i < count-1; i++) {
         for (int j = 0; j < count-1; j++) {
-            property_t prop1 = getPropertyAtIndex(pHead, j);
-            property_t prop2 = getPropertyAtIndex(pHead, j+1);
-            if (prop1.rentPerBedroom > prop2.rentPerBedroom) { //if a > b
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->rentPerBedroom > prop2->rentPerBedroom) { //if a > b
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //secondary sort by street name
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->rentPerBedroom == prop2->rentPerBedroom && strcmp(prop1->pStreet->name, prop2->pStreet->name) > 0) { //if number of bedrooms are equal and nameA > nameB
+                swapNodeValues(pHead, j, j+1);
+            }
+        }
+    }
+
+    //tertiary sort by house number
+    for (int i = 0; i < count-1; i++) {
+        for (int j = 0; j < count-1; j++) {
+            property_t *prop1 = getPropertyAtIndex(pHead, j);
+            property_t *prop2 = getPropertyAtIndex(pHead, j+1);
+            if (prop1->rentPerBedroom == prop2->rentPerBedroom && strcmp(prop1->pStreet->name, prop2->pStreet->name) == 0 && prop1->houseNumber > prop2->houseNumber) { //if number of bedrooms and names are equal and numberA > number B
                 swapNodeValues(pHead, j, j+1);
             }
         }

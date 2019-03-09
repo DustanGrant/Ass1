@@ -30,10 +30,10 @@ node_t *createUndecidedList(street_t *pStreets) {
  * Function that accepts a property as an argument and mallocs space for a node containing that property and pointing to NULL
  * before returning a pointer to that node
  */
-node_t *createNode(property_t newProperty) {
+node_t *createNode(property_t *newProperty) {
     node_t *pHead = malloc(sizeof(node_t));
 
-    pHead->property = newProperty;
+    pHead->property = *newProperty;
     pHead->next = NULL;
 
     return pHead;
@@ -89,7 +89,7 @@ void printList(node_t * pHead) {
     printf("\n");
 
     while (pCurrent != NULL) {
-        printProperty(pCurrent->property);
+        printProperty(&pCurrent->property);
         printf("\n");
         pCurrent = pCurrent->next;
     }

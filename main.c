@@ -76,6 +76,15 @@ void testLinkedList(street_t *pStreets, node_t *pUndecided) {
 
 //tests for sort.c
 void testSort(street_t *pStreets, node_t *pUndecided) {
+    //append a bunch of new nodes to the undecided list
+    for (int i = 0; i < 30; i++) {
+        appendNode(&pUndecided, createNode(createRandomProperty(pStreets)));
+    }
+
+
+    printf ("\nStreets\n");
+    printStreets(pStreets);
+
     printf ("\nInitial Undecided List\n");
     printList(pUndecided);
 
@@ -116,7 +125,7 @@ int main() {
     node_t *pFavourites = NULL; //starts off as null but will later be set to the first item added to the favourites list, may need to be a double pointer, we'll find out
     //end initialize
 
-    testSort(pStreets, pUndecided);
+
 }
 
 

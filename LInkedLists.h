@@ -15,7 +15,7 @@ typedef struct node {
 extern int getCount( node_t * pHead);
 extern node_t *getNodeAtIndex ( node_t *pHead, int index );
 extern node_t *createUndecidedList(street_t *pStreets);
-extern node_t *createNode(property_t newProperty);
+extern node_t *createNode(property_t *newProperty);
 extern void printList(node_t * pHead);
 extern void appendNode (node_t **ppHead, node_t *pNewNode);
 extern void insertNodeAtIndex(node_t **ppHead, node_t *pNewNode, int index);

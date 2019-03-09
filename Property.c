@@ -12,7 +12,7 @@
 /*
  * returns a pointer to the first element of an array of ten streets
  */
-street_t * createArrayOfStreets() {
+street_t *createArrayOfStreets() {
     static street_t streets[] = {
             {.name ="Koala Bear Avenue", .distance=0},
             {.name ="Platypus Drive", .distance=0},
@@ -33,7 +33,7 @@ street_t * createArrayOfStreets() {
  * Generates a random distance between 500-4000 for an array of 10 streets
  * accepts a pointer to the first member of that array
  */
-void setRandomStreetDistances (street_t * streets) {
+void setRandomStreetDistances (street_t *streets) {
     for (int i = 0; i < 10; i++) {
         (streets+i)->distance = 100*((rand() % (41 - 5) ) +5);
     }
@@ -43,17 +43,18 @@ void setRandomStreetDistances (street_t * streets) {
 /*
  * Function that generates a random property and returns it
  */
-property_t createRandomProperty(street_t * streets) {
-    property_t new;
+property_t *createRandomProperty(street_t *streets) {
+    property_t *new;
+    new = malloc(sizeof(property_t));
     int randomStreet = rand() % (10);
     int randomHouseNumber = (rand() % (200)) + 1; //1-200
     int randomBedroomNumber = (rand() % (4)) + 1; //1-4
     int randomRent = 50*((rand() % (12 + 1 - 4) ) + 4); //200-600
 
-    new.pStreet = (streets+randomStreet); //pointer arithmetic in effect
-    new.houseNumber = randomHouseNumber;
-    new.numberOfBedrooms = randomBedroomNumber;
-    new.rentPerBedroom = randomRent;
+    new->pStreet = (streets+randomStreet); //pointer arithmetic in effect
+    new->houseNumber = randomHouseNumber;
+    new->numberOfBedrooms = randomBedroomNumber;
+    new->rentPerBedroom = randomRent;
 
     return new;
 }
@@ -61,10 +62,10 @@ property_t createRandomProperty(street_t * streets) {
 /*
  * calculates the distance to a property
  */
-float calculateDistance(property_t property) {
+float calculateDistance(property_t *property) {
     float distance;
 
-    distance = (property.pStreet->distance + (20 * property.houseNumber));
+    distance = (property->pStreet->distance + (20 * property->houseNumber));
     distance = distance/1000; //convert to km
 
     return distance;
@@ -74,17 +75,17 @@ float calculateDistance(property_t property) {
  * Accepts an property and prints it in a nicely formatted way
  * Formatting is very delicate, please do not touch without consideration
  */
-void printProperty(property_t printThis) {
+void printProperty(property_t *printThis) {
     printf("%3d %-24s %16d %9d %6.2fkm",
-            printThis.houseNumber,
-            printThis.pStreet->name,
-            printThis.numberOfBedrooms,
-            printThis.rentPerBedroom,
+            printThis->houseNumber,
+            printThis->pStreet->name,
+            printThis->numberOfBedrooms,
+            printThis->rentPerBedroom,
             calculateDistance(printThis));
 }
 
 //function that accepts a pointer to an array of streets to print them
-void printStreets ( street_t * streets) {
+void printStreets ( street_t *streets) {
     for (int i = 0; i < 10; i++ ) {
         printf("Name: %s, Distance: %d\n", (streets+i)->name, (streets+i)->distance);
     }
