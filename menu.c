@@ -118,9 +118,6 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 				printf("\tsr - set the sorting to 'by rent'\n");
 				printf("\tq - quit the program\n");
 
-
-
-
 				state = Input;
 				break;
 			}

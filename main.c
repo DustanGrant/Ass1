@@ -143,7 +143,7 @@ int main() {
     node_t *pFavourites = NULL; //starts off as null but will later be set to the first item added to the favourites list, may need to be a double pointer, we'll find out
     //end initialize
 
-    //testNodeRemoval(pStreets, pUndecided);
+
     menu(pStreets, pUndecided, pFavourites);
 }
 
