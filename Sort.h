@@ -14,5 +14,6 @@ extern void sortByAddress(node_t *pHead);
 extern void sortByDistance(node_t *pHead);
 extern void sortByBedroom(node_t *pHead);
 extern void sortByRent(node_t *pHead);
+extern void sortSwitcher(node_t *pHead, int sortMethod);
 
 #endif //ASS1_SORT_H

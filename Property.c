@@ -84,6 +84,20 @@ void printProperty(property_t *printThis) {
             calculateDistance(printThis));
 }
 
+/*
+ * prints single property with labels
+ */
+void viewProperty(property_t *pProperty) {
+    printf("\nWhat do you think of this rental property?");
+
+    printf("\n\tAddress: %d %s, # of rooms: %d, rent/room: %d, distance from campus: %.2f\n",
+            pProperty->houseNumber,
+            pProperty->pStreet->name,
+            pProperty->numberOfBedrooms,
+            pProperty->rentPerBedroom,
+            calculateDistance(pProperty));
+}
+
 //function that accepts a pointer to an array of streets to print them
 void printStreets ( street_t *streets) {
     for (int i = 0; i < 10; i++ ) {

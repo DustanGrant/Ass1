@@ -6,11 +6,24 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "menu.h"
 #include "typedef.h"
 #include "Property.h"
 #include "LInkedLists.h"
 #include "Sort.h"
+#include "menu.h"
+
+//shamelessly borrowed from stack overflow
+//case insensitive strcmp
+int strcicmp(char const *a, char const *b) {
+	for (;; a++, b++) {
+		int d = tolower((unsigned char)*a) - tolower((unsigned char)*b);
+		if (d != 0 || !*a)
+			return d;
+	}
+}
 
 /*
  * -This function should accept user input and convert the character(s) to an associated integer value which will be passed to the switch statement in menu
@@ -21,95 +34,245 @@
  *  	If you decide to use an enum please create it in the header file
  */
 int getInput() {
-	//there should be a chain of if elses in here to assign an int value based on the input
-	//according to the assignment outline you can go easy on the input validation
-
-	char *input;
-	input = calloc(2, sizeof(char));
-	printf("Command ('h' for help): ");
+	char input[8];
+	int output = 0;
+	printf("\nCommand: ('h' for help)\n\t");
 	scanf("%s", input);
-	if(input == 'h' && input == 'H'){
-		return 1;
-	}else if(input == 'a' && input == 'A'){
-		return 2;
-	}else if(input == 'f' && input == 'F'){
-		return 3;
-	}else if(input == 'u' && input == 'U'){
-		return 4;
-	}else if(input == 'l' && input == 'L'){
-		return 5;
-	}else if(input == 'r' && input == 'R'){
-		return 6;
-	}else if(input == 'n' && input == 'N'){
-		return 7;
-	}else if(input == 'sa' && input == 'SA' && input == 'Sa' && input == 'sA'){
-		return 8;
-	}else if(input == 'sn' && input == 'SN' && input == 'Sn' && input == 'sN'){
-		return 9;
-	}else if(input == 'sr' && input == 'SR' && input == 'Sr' && input == 'sR'){
-		return 10;
-	}else if(input == 'sd' && input == 'SD' && input == 'Sd' && input == 'sD'){
-		return 11;
-	}else if(input == 'q' && input == 'q'){
-		return 12;
-	}else{
-		return 0;
+
+	if (strcicmp(input, "h") == 0) {
+		output = Help;
 	}
+	else if (strcicmp(input, "q") == 0) {
+		output = Quit;
+	}
+	else if (strcicmp(input, "a") == 0) {
+		output = All;
+	}
+	else if (strcicmp(input, "u") == 0) {
+		output = Undecided;
+	}
+	else if (strcicmp(input, "f") == 0) {
+		output = Favourites;
+	}
+	else if (strcicmp(input, "s") == 0) {
+		output = Sort;
+	}
+	else if (strcicmp(input, "sr") == 0) {
+		output = SortByRent;
+	}
+	else if (strcicmp(input, "sd") == 0) {
+		output = SortByDistance;
+	}
+	else if (strcicmp(input, "sn") == 0) {
+		output = SortByRooms;
+	}
+	else if (strcicmp(input, "sa") == 0) {
+		output = SortByAddress;
+	}
+	else if (strcicmp(input, "n") == 0) {
+		output = Next;
+	}
+	else if (strcicmp(input, "l") == 0) {
+		output = Left;
+	}
+	else if (strcicmp(input, "r") == 0) {
+		output = Right;
+	}
+	else {
+		output = Unsupported;
+	}
+
+	return output;
 }
 
 /*
  * All menu actions should be performed in this function
  */
 void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
-	//place the switch statement inside a while loop with a condition like while (exitTheLoop == 0) you can change the flag value when the user selects the quit option
-	//look at strategy #11 in the assignment outline to see what I mean by "dummy branches" or stub functions
-
+	//flags go here
+	int state = All;
 	int exitTheLoop = 0;
+	int listState = -1; //-1 for undecided, 1 for favourites
+	int sortMethod = 0;
+	int currentIndex = 0;
+
+
+
 	while(exitTheLoop == 0){
-
-		switch(getInput()){
-
-			case '1' :
-				printf("Valid commands are:\n");
-				printf("	h - display this help");
-				printf("	a - display all the current properties on the current list");
-				printf("	f - switch to the favourites list");
-				printf("	u - switch to the undecided list");
-				printf("	l - 'swipe left' on the current rental property");
-				printf("	r - 'swipe right' on the current rental property");
-				printf("	n - skip to the next rental property");
-				printf("	sa - set the sorting to 'by address'");
-				printf("	sn - set the sorting to 'by number of rooms'");
-				printf("	sr - set the sorting to 'by rent'");
-				printf("	sd - set the sorting to 'by distance'");
-				printf("	q - quit the program");
+		switch (state) {
+			case Input: {
+				state = getInput();
 				break;
-			case '2' :
-				// display properties
-			case '3' :
-				// fav list
-			case '4' :
-				//undecided list
-			case '5' :
-				// left swipe
-			case '6' :
-				// right swipe
-			case '7' :
-				// property skip
-			case '8' :
-				//sort address
-			case '9' :
-				//sort rooms
-			case '10' :
-				//sort rent
-			case '11' :
-				//sort distance
-			case '12' :
-				exitTheLoop = 1;
-			default :
-				printf("Unsupported Command. Please try again.")
-		}
+			}
+			case Help: {
+				printf("\nValid commands are:\n");
+				printf("\th - display this help\n");
+				printf("\ta - display all the rental properties on the current list\n");
+				printf("\tf - switch to the favourites list\n");
+				printf("\tu - switch to the undecided list\n");
+				printf("\tl - 'swipe left' on the current rental property\n");
+				printf("\tr - 'swipe right' on the current rental property\n");
+				printf("\tsa - set the sorting to 'by address'\n");
+				printf("\tsn - set the sorting to 'by number of rooms'\n");
+				printf("\tsd - set the sorting to 'by distance'\n");
+				printf("\tsr - set the sorting to 'by rent'\n");
+				printf("\tq - quit the program\n");
 
+
+
+
+				state = Input;
+				break;
+			}
+			case All: {
+				if (listState == -1) { //undecided
+					if (pUndecided != NULL) { //list is not NULL
+						printf("\n\nUndecided List: \n"); //list title
+						sortSwitcher(pUndecided, sortMethod); //sort
+						printList(pUndecided); //display list
+						viewProperty(getPropertyAtIndex(pUndecided, currentIndex)); //display property at current index
+						state = Input;//return to input
+					} else {
+						printList(pUndecided); //display empty message
+						printf("\n\nSwitching to Favourites List");
+						state = Favourites; //switch to favourites
+					}
+				}
+				if (listState == 1) { //favourites
+					printf("\nFavourites List: \n");
+					if (pFavourites != NULL) {
+						sortSwitcher(pFavourites, sortMethod);
+						printList(pFavourites);
+						viewProperty(getPropertyAtIndex(pFavourites, currentIndex));
+						state = Input;
+					} else {
+						printList(pFavourites);
+						printf("\nSwitching to undecided list");
+						state = Undecided; //switch to undecided
+					}
+				}
+				break;
+			}
+			case Undecided: {
+				if (listState == 1) {
+					listState = -1; //switch list to undecided
+					currentIndex = 0; //reset index
+
+					if (rand() % 2 == 0) { //50% chance
+						appendNode(&pUndecided, createNode(createRandomProperty(pStreets))); //create and append random property
+						printf("\nA new property has been added to the undecided list\n");
+					}
+				}
+				else {
+					printf("\nYou're already viewing the undecided list\n");
+				}
+
+
+				state = All; //back to All
+				break;
+			}
+			case Favourites: {
+				if (listState == -1) {
+					listState = 1; //switch list
+					currentIndex = 0; //reset index
+				}
+				else {
+					printf("\nYou're already viewing the favourites list\n");
+				}
+
+				state = All; //do an all
+				break;
+			}
+			case Sort: {
+				state = All;
+				break;
+			}
+			case SortByAddress: {
+				sortMethod = 0;
+				state = All;
+				currentIndex = 0; //return to start of list
+				break;
+			}
+			case SortByRooms: {
+				sortMethod = 1;
+				state = All;
+				currentIndex = 0; //return to start of list
+				break;
+			}
+			case SortByRent: {
+				sortMethod = 2;
+				state = All;
+				currentIndex = 0; //return to start of list
+				break;
+			}
+			case SortByDistance: {
+				sortMethod = 3;
+				state = All;
+				currentIndex = 0; //return to start of list
+				break;
+			}
+			case Next: {
+				if (listState == -1) { //undecided
+					if (currentIndex < getCount(pUndecided) -1) {
+						currentIndex++;
+					}
+					else {
+						printf("\nYou have reached the end of the list, returning to start\n");
+						currentIndex = 0;
+					}
+				}
+				if (listState == 1) { //favourites
+					if (currentIndex < getCount(pFavourites) -1) {
+						currentIndex++;
+					}
+					else {
+						printf("\nYou have reached the end of the list, returning to start\n");
+						currentIndex = 0;
+					}
+				}
+				state = All;
+				break;
+			}
+			case Left: { //reject
+				if (listState == -1) { //undecided
+					free(removeNodeAtIndex(&pUndecided, currentIndex)); //free up the memory
+					printf("\nItem removed from Undecided list\n");
+				}
+				if (listState == 1) { //favourites
+					free(removeNodeAtIndex(&pFavourites, currentIndex)); //free up the memory
+					printf("\nItem removed from Favourites list\n");
+				}
+
+				state = All;
+				break;
+			}
+			case Right: { //approve
+				if (listState == -1) { //undecided
+					appendNode(&pFavourites, removeNodeAtIndex(&pUndecided, currentIndex));
+					printf("\nItem added to Favourites list\n");
+				}
+				if (listState == 1) { //favourites
+					printf("\nItem is already in favourites list\n");
+				}
+
+				state = All;
+				break;
+			}
+			case Quit: {
+				printf("\nExiting program, have a nice day");
+				exitTheLoop = 1;
+				break;
+			}
+			case Unsupported: {
+				printf("\nCommand unsupported, returning to help\n");
+				state = Help;
+				break;
+			}
+			default: {
+				state = Unsupported;
+				break;
+			}
+		}
 	}
 
 

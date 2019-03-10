@@ -20,6 +20,7 @@ CMakeFiles/Ass1.dir/main.c.o: ../LInkedLists.h
 CMakeFiles/Ass1.dir/main.c.o: ../Property.h
 CMakeFiles/Ass1.dir/main.c.o: ../Sort.h
 CMakeFiles/Ass1.dir/main.c.o: ../main.c
+CMakeFiles/Ass1.dir/main.c.o: ../menu.h
 CMakeFiles/Ass1.dir/main.c.o: ../typedef.h
 
 CMakeFiles/Ass1.dir/menu.c.o: ../LInkedLists.h

@@ -77,35 +77,46 @@ node_t *getNodeAtIndex ( node_t *pHead, int index ){
  * Formatting is very delicate, please do not touch without consideration
  */
 void printList(node_t * pHead) {
-    node_t *pCurrent = pHead;
+    if (pHead != NULL) {
+        node_t *pCurrent = pHead;
 
-    printf("%-28s%-10s%-7s %9s %8s", "Address", "", "#Rooms", "Rent/Room", "Distance");
+        printf("%-28s%-10s%-7s %9s %8s", "Address", "", "#Rooms", "Rent/Room", "Distance");
 
-    printf("\n");
-
-    printf("%-38s%-7s%10s%9s", "----------------------------", "-------", "---------", "--------"); //x28, x7, x9
-
-
-    printf("\n");
-
-    while (pCurrent != NULL) {
-        printProperty(&pCurrent->property);
         printf("\n");
-        pCurrent = pCurrent->next;
+
+        printf("%-38s%-7s%10s%9s", "----------------------------", "-------", "---------", "--------"); //x28, x7, x9
+
+
+        printf("\n");
+
+        while (pCurrent != NULL) {
+            printProperty(&pCurrent->property);
+            printf("\n");
+            pCurrent = pCurrent->next;
+        }
+    } else {
+        printf("This List is empty\n");
     }
+
 }
 
 //append an item to the end of a list
 void appendNode (node_t **ppHead, node_t *pNewNode) {
-    node_t *pCurrent = *ppHead; //keeps track of our position
+    if (*ppHead != NULL) {
+        node_t *pCurrent = *ppHead; //keeps track of our position
 
-    //sets pCurrent to point to last node in list
-    while (pCurrent->next != NULL) {
-        pCurrent = pCurrent->next;
+        //sets pCurrent to point to last node in list
+        while (pCurrent->next != NULL) {
+            pCurrent = pCurrent->next;
+        }
+
+        pCurrent->next = pNewNode;
+        pCurrent->next->next = NULL; //cuts off any nodes the new node was connected to
+    } else {
+        pNewNode->next = NULL;
+        *ppHead = pNewNode;
+
     }
-
-    pCurrent->next = pNewNode;
-    pCurrent->next->next = NULL; //cuts off any nodes the new node was connected to
 }
 
 //insert an item into a list at position

@@ -38,6 +38,22 @@ void swapNodeValues(node_t *pHead, int indexA, int indexB) {
     setPropertyAtIndex(pHead, propB, indexA);
 }
 
+//performs the desired sort based on the input
+void sortSwitcher(node_t *pHead, int sortMethod) {
+    if (sortMethod == 0) {
+        sortByAddress(pHead);
+    }
+    else if (sortMethod == 1) {
+        sortByBedroom(pHead);
+    }
+    else if (sortMethod == 2) {
+        sortByRent(pHead);
+    }
+    else if (sortMethod == 3) {
+        sortByDistance(pHead);
+    }
+}
+
 /*
  * for strcmp a == b = 0
  *a > b =+

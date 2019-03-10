@@ -10,6 +10,7 @@
 #include "Property.h"
 #include "LInkedLists.h"
 #include "Sort.h"
+#include "menu.h"
 
 //Tests LinkedLists.c
 void testLinkedList(street_t *pStreets, node_t *pUndecided) {
@@ -74,6 +75,23 @@ void testLinkedList(street_t *pStreets, node_t *pUndecided) {
     printList(pUndecided);
 }
 
+void testNodeRemoval(street_t *pStreets, node_t *pUndecided) {
+    //display the undecided list and the array of streets for reference
+    printStreets(pStreets);
+    printList(pUndecided);
+
+    //remove five entries from list
+    printf ("\nremove five entries from the list\n");
+    for (int i = 0; i < 5; i++) {
+        removeNodeAtIndex(&pUndecided, 0);
+    }
+    printList(pUndecided);
+
+    printf ("\nRemove final entry from the list and print\n");
+    removeNodeAtIndex(&pUndecided, 0);
+    printList(pUndecided);
+}
+
 //tests for sort.c
 void testSort(street_t *pStreets, node_t *pUndecided) {
     //append a bunch of new nodes to the undecided list
@@ -118,14 +136,15 @@ void testSort(street_t *pStreets, node_t *pUndecided) {
 
 int main() {
     //initialize stuff here
-    srand(time(0)); //seed rand
+    srand((unsigned int)time(0)); //seed rand
     street_t * pStreets = createArrayOfStreets(); //creates a pointer to the first element of our array of streets
     setRandomStreetDistances(pStreets);//assigns a random distance to each street
     node_t *pUndecided = createUndecidedList(pStreets); //creates undecided list with 6 random properties
     node_t *pFavourites = NULL; //starts off as null but will later be set to the first item added to the favourites list, may need to be a double pointer, we'll find out
     //end initialize
 
-
+    //testNodeRemoval(pStreets, pUndecided);
+    menu(pStreets, pUndecided, pFavourites);
 }
 
 
