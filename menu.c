@@ -23,6 +23,38 @@
 int getInput() {
 	//there should be a chain of if elses in here to assign an int value based on the input
 	//according to the assignment outline you can go easy on the input validation
+
+	char *input;
+	input = calloc(2, sizeof(char));
+	printf("Command ('h' for help): ");
+	scanf("%s", input);
+	if(input == 'h' && input == 'H'){
+		return 1;
+	}else if(input == 'a' && input == 'A'){
+		return 2;
+	}else if(input == 'f' && input == 'F'){
+		return 3;
+	}else if(input == 'u' && input == 'U'){
+		return 4;
+	}else if(input == 'l' && input == 'L'){
+		return 5;
+	}else if(input == 'r' && input == 'R'){
+		return 6;
+	}else if(input == 'n' && input == 'N'){
+		return 7;
+	}else if(input == 'sa' && input == 'SA' && input == 'Sa' && input == 'sA'){
+		return 8;
+	}else if(input == 'sn' && input == 'SN' && input == 'Sn' && input == 'sN'){
+		return 9;
+	}else if(input == 'sr' && input == 'SR' && input == 'Sr' && input == 'sR'){
+		return 10;
+	}else if(input == 'sd' && input == 'SD' && input == 'Sd' && input == 'sD'){
+		return 11;
+	}else if(input == 'q' && input == 'q'){
+		return 12;
+	}else{
+		return 0;
+	}
 }
 
 /*
@@ -32,80 +64,53 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 	//place the switch statement inside a while loop with a condition like while (exitTheLoop == 0) you can change the flag value when the user selects the quit option
 	//look at strategy #11 in the assignment outline to see what I mean by "dummy branches" or stub functions
 
-}
-/*
-//repurpose this for the input function
-int menu(){
+	int exitTheLoop = 0;
+	while(exitTheLoop == 0){
 
-	char *input;
-	input = calloc(2, sizeof(char));
-	printf("Command ('h' for help): ");
-	scanf("%s", input);
+		switch(getInput()){
 
-	//switch statement with all functions
+			case '1' :
+				printf("Valid commands are:\n");
+				printf("	h - display this help");
+				printf("	a - display all the current properties on the current list");
+				printf("	f - switch to the favourites list");
+				printf("	u - switch to the undecided list");
+				printf("	l - 'swipe left' on the current rental property");
+				printf("	r - 'swipe right' on the current rental property");
+				printf("	n - skip to the next rental property");
+				printf("	sa - set the sorting to 'by address'");
+				printf("	sn - set the sorting to 'by number of rooms'");
+				printf("	sr - set the sorting to 'by rent'");
+				printf("	sd - set the sorting to 'by distance'");
+				printf("	q - quit the program");
+				break;
+			case '2' :
+				// display properties
+			case '3' :
+				// fav list
+			case '4' :
+				//undecided list
+			case '5' :
+				// left swipe
+			case '6' :
+				// right swipe
+			case '7' :
+				// property skip
+			case '8' :
+				//sort address
+			case '9' :
+				//sort rooms
+			case '10' :
+				//sort rent
+			case '11' :
+				//sort distance
+			case '12' :
+				exitTheLoop = 1;
+			default :
+				printf("Unsupported Command. Please try again.")
+		}
 
-}*/
+	}
 
-//get rid of everything below here and just perform the actions in the appropriate spot of the menu function
-void help(){
 
-	printf("Valid commands are:\n");
-	printf("	h - display this help");
-	printf("	a - display all the current properties on the current list");
-	printf("	f - switch to the favourites list");
-	printf("	u - switch to the undecided list");
-	printf("	l - 'swipe left' on the current rental property");
-	printf("	r - 'swipe right' on the current rental property");
-	printf("	n - skip to the next rental property");
-	printf("	sa - set the sorting to 'by address'");
-	printf("	sn - set the sorting to 'by number of rooms'");
-	printf("	sr - set the sorting to 'by rent'");
-	printf("	sd - set the sorting to 'by distance'");
-	printf("	q - quit the program");
-
-	//menu();
-}
-
-void displayProperties(){
-
-}
-
-void switchfavourites(){
-
-}
-
-void switchundecided(){
-
-}
-
-void leftswipe(){
-
-}
-
-void rightswipe(){
-
-}
-
-void nextproperty(){
-
-}
-
-void sortAddress(){
-
-}
-
-void sortRooms(){
-
-}
-
-void sortRent(){
-
-}
-
-void setDistance(){
-
-}
-
-void quit(){
-	
 }
