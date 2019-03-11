@@ -1,6 +1,5 @@
 /*
- * Will contain the node struct and all associated functions for handling the linked list
- * To Do:
+ * Will contain the node struct and all associated functions for handling the linked lists
  *
  */
 

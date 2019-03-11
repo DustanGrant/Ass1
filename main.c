@@ -1,7 +1,11 @@
-/*
- * Where the action happens
- * Will contain the menu contained within a loop
- */
+/* PROGRAM: Assignment 1
+   AUTHOR: Dustan Grant (040911882) & Karanpreet Singh Mann (040912515)
+   DATE: 2019-03-11
+   PURPOSE: Make a rental property viewing application that simulates listings by generating properties randomly
+   LEVEL OF DIFFICULTY: 4
+   CHALLENGES: Correcting all instances of structs being passed by value
+   HOURS SPENT: 20 hours
+*/
 
 #include <time.h>
 #include <stdio.h>
@@ -12,6 +16,7 @@
 #include "Sort.h"
 #include "menu.h"
 
+//unit tests fo Linked lists
 //Tests LinkedLists.c
 void testLinkedList(street_t *pStreets, node_t *pUndecided) {
     //display the undecided list and the array of streets for reference
@@ -75,6 +80,7 @@ void testLinkedList(street_t *pStreets, node_t *pUndecided) {
     printList(pUndecided);
 }
 
+//unit tests for node removal
 void testNodeRemoval(street_t *pStreets, node_t *pUndecided) {
     //display the undecided list and the array of streets for reference
     printStreets(pStreets);
@@ -92,7 +98,7 @@ void testNodeRemoval(street_t *pStreets, node_t *pUndecided) {
     printList(pUndecided);
 }
 
-//tests for sort.c
+//unit tests for sort.c
 void testSort(street_t *pStreets, node_t *pUndecided) {
     //append a bunch of new nodes to the undecided list
     for (int i = 0; i < 30; i++) {
