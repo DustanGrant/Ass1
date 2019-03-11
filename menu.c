@@ -112,10 +112,10 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 				printf("\tu - switch to the undecided list\n");
 				printf("\tl - 'swipe left' on the current rental property\n");
 				printf("\tr - 'swipe right' on the current rental property\n");
-				printf("\tsa - set the sorting to 'by address'\n");
-				printf("\tsn - set the sorting to 'by number of rooms (ascending)'\n");
-				printf("\tsd - set the sorting to 'by distance'\n");
-				printf("\tsr - set the sorting to 'by rent'\n");
+				printf("\tsa - set the sorting to 'by address(ascending)'\n");
+				printf("\tsn - set the sorting to 'by number of rooms(ascending)'\n");
+				printf("\tsd - set the sorting to 'by distance(ascending)'\n");
+				printf("\tsr - set the sorting to 'by rent(ascending)'\n");
 				printf("\tq - quit the program\n");
 
 				state = Input;
@@ -124,14 +124,14 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 			case All: {
 				if (listState == -1) { //undecided
 					if (pUndecided != NULL) { //list is not NULL
-						printf("\n\nUndecided List: \n"); //list title
+						printf("\nUndecided List: \n"); //list title
 						sortSwitcher(pUndecided, sortMethod); //sort
 						printList(pUndecided); //display list
 						viewProperty(getPropertyAtIndex(pUndecided, currentIndex)); //display property at current index
 						state = Input;//return to input
 					} else {
 						printList(pUndecided); //display empty message
-						printf("\n\nSwitching to Favourites List\n");
+						printf("\nSwitching to Favourites List\n");
 						state = Favourites; //switch to favourites
 					}
 				}
@@ -232,12 +232,18 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 			}
 			case Left: { //reject
 				if (listState == -1) { //undecided
-					free(removeNodeAtIndex(&pUndecided, currentIndex)); //free up the memory
+					free(removeNodeAtIndex(&pUndecided, currentIndex)); //temporary pointer points to removed node
 					printf("\nItem removed from Undecided list\n");
+                    if (currentIndex >= getCount(pUndecided)) { //if index goes out of bounds
+                        currentIndex = getCount(pUndecided) - 1; //readjust index
+                    }
 				}
 				if (listState == 1) { //favourites
 					free(removeNodeAtIndex(&pFavourites, currentIndex)); //free up the memory
 					printf("\nItem removed from Favourites list\n");
+                    if (currentIndex >= getCount(pFavourites)) { //if index goes out of bounds
+                        currentIndex = getCount(pFavourites) -1; //readjust index
+                    }
 				}
 
 				state = All;
@@ -247,6 +253,9 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 				if (listState == -1) { //undecided
 					appendNode(&pFavourites, removeNodeAtIndex(&pUndecided, currentIndex));
 					printf("\nItem added to Favourites list\n");
+                    if (currentIndex >= getCount(pUndecided)) { //if index goes out of bounds
+                        currentIndex = getCount(pUndecided) - 1; //readjust index
+                    }
 				}
 				if (listState == 1) { //favourites
 					printf("\nItem is already in favourites list\n");

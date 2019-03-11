@@ -90,7 +90,7 @@ void printProperty(property_t *printThis) {
 void viewProperty(property_t *pProperty) {
     printf("\nWhat do you think of this rental property?");
 
-    printf("\n\tAddress: %d %s, # of rooms: %d, rent/room: %d, distance from campus: %.2f\n",
+    printf("\n\tAddress: %d %s, # of rooms: %d, rent/room: %d, distance from campus: %.2fkm\n",
             pProperty->houseNumber,
             pProperty->pStreet->name,
             pProperty->numberOfBedrooms,
