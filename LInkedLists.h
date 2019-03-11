@@ -8,7 +8,7 @@
 #define ASS1_LINKEDLISTS_H
 
 typedef struct node {
-    property_t property;
+    property_t *property;
     struct node * next;
 }node_t;
 

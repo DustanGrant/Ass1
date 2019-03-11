@@ -10,13 +10,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+//returns a pointer to a property contained in the linked list
 property_t *getPropertyAtIndex(node_t *pHead, int index) {
     node_t *pTemp = getNodeAtIndex(pHead, index);
 
-    return &pTemp->property;
+    return pTemp->property;
 }
 
+//sets a property in a linked list
 void setPropertyAtIndex(node_t *pHead, property_t *newProperty, int index) {
     node_t *pCurrent = pHead;
 
@@ -27,9 +28,10 @@ void setPropertyAtIndex(node_t *pHead, property_t *newProperty, int index) {
         }
         pCurrent = pCurrent->next;
     }
-    pCurrent->property = *newProperty;
+    pCurrent->property = newProperty;
 }
 
+//swaps the two node values
 void swapNodeValues(node_t *pHead, int indexA, int indexB) {
     property_t *propA = getPropertyAtIndex(pHead, indexA);
     property_t *propB = getPropertyAtIndex(pHead, indexB);

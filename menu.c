@@ -1,8 +1,6 @@
 /*
- * Recommended Structure for menu .c
- * Ideally I would want only two functions to be in the file
- * I'll include declarations with comments below
- * I'll be online more often than not so feel free to ask for help or clarification
+ * Contains everything that the user will see
+ * contains the menu which can be implemented as a single function in main
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,12 +26,7 @@ int caseInsensitiveStrcmp(char const *a, char const *b) {
 }
 
 /*
- * -This function should accept user input and convert the character(s) to an associated integer value which will be passed to the switch statement in menu
- * -This means that every menu option will have a number associated with it allowing us to use a switch statement for the actual menu
- * 	I think this will good for readability over using a large set of if else statements in the menu
- * -if the user enters a value that doesn't match you should return an int that corresponds to the unsupported command option
- * -You may want to use an enum to define the menu values this would make the switch statement very readable ex. case swipeLeft:
- *  	If you decide to use an enum please create it in the header file
+ * Accepts user input and returns an int corresponding to the enum in the header file
  */
 int getInput() {
 	char input[8];
@@ -92,7 +85,7 @@ int getInput() {
  */
 void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 	//flags go here
-	int state = All;
+	int state = All; //state flag that uses the enum labels
 	int exitTheLoop = 0;
 	int listState = -1; //-1 for undecided, 1 for favourites
 	int sortMethod = 0;
@@ -232,14 +225,20 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 			}
 			case Left: { //reject
 				if (listState == -1) { //undecided
-					free(removeNodeAtIndex(&pUndecided, currentIndex)); //temporary pointer points to removed node
+					node_t *freeThis = (removeNodeAtIndex(&pUndecided, currentIndex)); //temporary pointer points to removed node
+					free(freeThis->property); //free the property therein
+					free(freeThis); //free the node
+
 					printf("\nItem removed from Undecided list\n");
                     if (currentIndex >= getCount(pUndecided)) { //if index goes out of bounds
                         currentIndex = getCount(pUndecided) - 1; //readjust index
                     }
 				}
 				if (listState == 1) { //favourites
-					free(removeNodeAtIndex(&pFavourites, currentIndex)); //free up the memory
+					node_t *freeThis = (removeNodeAtIndex(&pFavourites, currentIndex)); //free up the memory
+					free(freeThis->property); //free the property therein
+					free(freeThis); //free the node
+
 					printf("\nItem removed from Favourites list\n");
                     if (currentIndex >= getCount(pFavourites)) { //if index goes out of bounds
                         currentIndex = getCount(pFavourites) -1; //readjust index
