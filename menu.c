@@ -113,7 +113,7 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 				printf("\tl - 'swipe left' on the current rental property\n");
 				printf("\tr - 'swipe right' on the current rental property\n");
 				printf("\tsa - set the sorting to 'by address'\n");
-				printf("\tsn - set the sorting to 'by number of rooms'\n");
+				printf("\tsn - set the sorting to 'by number of rooms (ascending)'\n");
 				printf("\tsd - set the sorting to 'by distance'\n");
 				printf("\tsr - set the sorting to 'by rent'\n");
 				printf("\tq - quit the program\n");
