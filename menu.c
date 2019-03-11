@@ -15,14 +15,16 @@
 #include "Sort.h"
 #include "menu.h"
 
-//shamelessly borrowed from stack overflow
-//case insensitive strcmp
-int strcicmp(char const *a, char const *b) {
-	for (;; a++, b++) {
-		int d = tolower((unsigned char)*a) - tolower((unsigned char)*b);
-		if (d != 0 || !*a)
-			return d;
-	}
+//strcmp that doesn't care about case
+int caseInsensitiveStrcmp(char const *a, char const *b) {
+    while(1) {
+        int returnValue = tolower((unsigned char)*a) - tolower((unsigned char)*b);
+        if (returnValue != 0 || !*a) {
+            return returnValue;
+        }
+        a++;
+        b++;
+    }
 }
 
 /*
@@ -39,43 +41,43 @@ int getInput() {
 	printf("\nCommand: ('h' for help)\n\t");
 	scanf("%s", input);
 
-	if (strcicmp(input, "h") == 0) {
+	if (caseInsensitiveStrcmp(input, "h") == 0) {
 		output = Help;
 	}
-	else if (strcicmp(input, "q") == 0) {
+	else if (caseInsensitiveStrcmp(input, "q") == 0) {
 		output = Quit;
 	}
-	else if (strcicmp(input, "a") == 0) {
+	else if (caseInsensitiveStrcmp(input, "a") == 0) {
 		output = All;
 	}
-	else if (strcicmp(input, "u") == 0) {
+	else if (caseInsensitiveStrcmp(input, "u") == 0) {
 		output = Undecided;
 	}
-	else if (strcicmp(input, "f") == 0) {
+	else if (caseInsensitiveStrcmp(input, "f") == 0) {
 		output = Favourites;
 	}
-	else if (strcicmp(input, "s") == 0) {
+	else if (caseInsensitiveStrcmp(input, "s") == 0) {
 		output = Sort;
 	}
-	else if (strcicmp(input, "sr") == 0) {
+	else if (caseInsensitiveStrcmp(input, "sr") == 0) {
 		output = SortByRent;
 	}
-	else if (strcicmp(input, "sd") == 0) {
+	else if (caseInsensitiveStrcmp(input, "sd") == 0) {
 		output = SortByDistance;
 	}
-	else if (strcicmp(input, "sn") == 0) {
+	else if (caseInsensitiveStrcmp(input, "sn") == 0) {
 		output = SortByRooms;
 	}
-	else if (strcicmp(input, "sa") == 0) {
+	else if (caseInsensitiveStrcmp(input, "sa") == 0) {
 		output = SortByAddress;
 	}
-	else if (strcicmp(input, "n") == 0) {
+	else if (caseInsensitiveStrcmp(input, "n") == 0) {
 		output = Next;
 	}
-	else if (strcicmp(input, "l") == 0) {
+	else if (caseInsensitiveStrcmp(input, "l") == 0) {
 		output = Left;
 	}
-	else if (strcicmp(input, "r") == 0) {
+	else if (caseInsensitiveStrcmp(input, "r") == 0) {
 		output = Right;
 	}
 	else {
@@ -95,8 +97,6 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 	int listState = -1; //-1 for undecided, 1 for favourites
 	int sortMethod = 0;
 	int currentIndex = 0;
-
-
 
 	while(exitTheLoop == 0){
 		switch (state) {
@@ -131,7 +131,7 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 						state = Input;//return to input
 					} else {
 						printList(pUndecided); //display empty message
-						printf("\n\nSwitching to Favourites List");
+						printf("\n\nSwitching to Favourites List\n");
 						state = Favourites; //switch to favourites
 					}
 				}
@@ -144,7 +144,7 @@ void menu(street_t *pStreets, node_t *pUndecided, node_t *pFavourites) {
 						state = Input;
 					} else {
 						printList(pFavourites);
-						printf("\nSwitching to undecided list");
+						printf("\nSwitching to undecided list\n");
 						state = Undecided; //switch to undecided
 					}
 				}

@@ -1,12 +1,13 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Ass1.dir/main.c.o"
-  "CMakeFiles/Ass1.dir/LInkedLists.c.o"
-  "CMakeFiles/Ass1.dir/Sort.c.o"
-  "CMakeFiles/Ass1.dir/Property.c.o"
-  "CMakeFiles/Ass1.dir/menu.c.o"
+  "CMakeFiles/Ass1.dir/main.c.obj"
+  "CMakeFiles/Ass1.dir/LInkedLists.c.obj"
+  "CMakeFiles/Ass1.dir/Sort.c.obj"
+  "CMakeFiles/Ass1.dir/Property.c.obj"
+  "CMakeFiles/Ass1.dir/menu.c.obj"
   "Ass1.pdb"
   "Ass1.exe"
-  "libAss1.dll.a"
+  "Ass1.exe.manifest"
+  "Ass1.lib"
 )
 
 # Per-language clean rules from dependency scanning.

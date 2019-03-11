@@ -21,7 +21,7 @@ street_t *createArrayOfStreets() {
             {.name ="Dingo Promenade", .distance=0},
             {.name ="Emu Street", .distance=0},
             {.name ="Cassowary Road", .distance=0},
-            {.name ="Drop Bear Court", .distance=0},
+            {.name ="Quokka Court", .distance=0},
             {.name ="Echidna Avenue", .distance=0},
             {.name ="Box Jellyfish Boulevard", .distance=0}
     };
